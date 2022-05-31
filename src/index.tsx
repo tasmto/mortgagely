@@ -6,8 +6,8 @@ import Footer from './features/footer';
 import Header from './features/header';
 import { routes } from './Routes';
 import './scss/main.scss';
-import CustomCursor from 'custom-cursor-react';
-import 'custom-cursor-react/dist/index.css';
+// import CustomCursor from 'custom-cursor-react';
+// import 'custom-cursor-react/dist/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -25,7 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </Routes>
       </Container>
       <Footer />
-      <CustomCursor
+      {/* <CustomCursor
         targets={['a', '.btn', '.navbar-toggler', '.link']}
         customClass='custom-cursor'
         dimensions={45}
@@ -38,7 +38,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         }}
         targetOpacity={0.5}
         targetScale={2}
-      />
+      /> */}
     </Router>
   </React.StrictMode>
 );
