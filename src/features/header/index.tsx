@@ -1,57 +1,42 @@
 import React from 'react';
 import { SITE_TITLE } from '../../constants/GlobalConstants';
+import {
+  Navbar,
+  NavDropdown,
+  Offcanvas,
+  Nav,
+  Container,
+} from 'react-bootstrap';
 
-type Props = {};
-
-function Navbar({}: Props) {
+const Header = () => {
   return (
-    <nav
-      className='navbar navbar-expand-lg navbar-light fixed-top shadow-sm'
-      id='mainNav'
-    >
-      <div className='container px-5'>
-        <a className='navbar-brand fw-bold' href='#page-top'>
-          {SITE_TITLE}
-        </a>
-        <button
-          className='navbar-toggler'
-          type='button'
-          data-bs-toggle='collapse'
-          data-bs-target='#navbarResponsive'
-          aria-controls='navbarResponsive'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
+    <Navbar expand='md' id='mainNav' sticky='top' className='mb-3 shadow'>
+      <Container fluid='md'>
+        <Navbar.Brand href='#'>{SITE_TITLE}</Navbar.Brand>
+        <Navbar.Toggle aria-controls={`offcanvasNavbar-md`} />
+        <Navbar.Offcanvas
+          id={`offcanvasNavbar-md`}
+          aria-labelledby={`offcanvasNavbarLabel-md`}
+          placement='end'
         >
-          Menu
-          <i className='bi-list'></i>
-        </button>
-        <div className='collapse navbar-collapse' id='navbarResponsive'>
-          <ul className='navbar-nav ms-auto me-4 my-3 my-lg-0'>
-            <li className='nav-item'>
-              <a className='nav-link me-lg-3' href='#features'>
-                Features
-              </a>
-            </li>
-            <li className='nav-item'>
-              <a className='nav-link me-lg-3' href='#download'>
-                Download
-              </a>
-            </li>
-          </ul>
-          <button
-            className='btn btn-primary rounded-pill px-3 mb-2 mb-lg-0'
-            data-bs-toggle='modal'
-            data-bs-target='#feedbackModal'
-          >
-            <span className='d-flex align-items-center'>
-              <i className='bi-chat-text-fill me-2'></i>
-              <span className='small'>Send Feedback</span>
-            </span>
-          </button>
-        </div>
-      </div>
-    </nav>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title id={`offcanvasNavbarLabel-md`}>
+              {SITE_TITLE}
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className='justify-content-end flex-grow-1 pe-3'>
+              <Nav.Link href='#faq'>Bonds</Nav.Link>
+              <Nav.Link href='#faq'>Mortgages</Nav.Link>
+              <Nav.Link href='#faq'>FAQ's</Nav.Link>
+              <Nav.Link href='#about'>About</Nav.Link>
+              <Nav.Link href='#developer'>Developer</Nav.Link>
+            </Nav>
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
+      </Container>
+    </Navbar>
   );
-}
+};
 
-export default Navbar;
+export default Header;
