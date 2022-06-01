@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Container, Col, Nav } from 'react-bootstrap';
+import { SITE_TITLE } from '../../constants/GlobalConstants';
 
 type Props = {};
 
@@ -10,7 +11,7 @@ function Footer({}: Props) {
       <Row as='footer' className='align-items-center justify-content-between'>
         <Col sm='auto'>
           <small className='mb-2'>
-            &copy; Your Website 2022. All Rights Reserved.
+            &copy; {SITE_TITLE} {new Date().getFullYear()}. All Rights Reserved.
           </small>
         </Col>
         <Col sm='auto'>

@@ -11,6 +11,7 @@ import {
 import { FiFeather, FiAward } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import Phone from '../features/animatedImages/phone';
+import Stars from '../features/animatedImages/stars';
 import DeveloperDetailsBlocks from '../features/developer/DeveloperDetailsBlocks';
 import HomePageHero from '../features/heros/HomepageHero';
 
@@ -23,7 +24,7 @@ const HomePage = (props: Props) => {
 
       <Container fluid as='section' className='px-0 pb-0' id='calculator'>
         <Row className='row gx-5 justify-content-center align-items-stretch bg-gradient-primary-to-secondary px-5 py-5 mx-auto shadow'>
-          <Col md={6} lg={7}>
+          <Col md={6} lg={7} className='order-2 order-md-0'>
             <ListGroup>
               <Row>
                 <Row className='g-1'>
@@ -118,7 +119,7 @@ const HomePage = (props: Props) => {
             </ListGroup>
             {/* //!https://www.ooba.co.za/home-loan/bond-repayment-calculator/ */}
           </Col>
-          <Col md={6} lg={5} className=' sticky-top'>
+          <Col md={6} lg={5} className=' mb-3 mb-md-0 order-1'>
             <h2 className='h2 fs-1 text-white mb-4'>
               Choose the type of calculator you want to use.
             </h2>
@@ -184,25 +185,28 @@ const HomePage = (props: Props) => {
       </section>
 
       <section className='bg-light border' id='about'>
-        <div className='container px-5'>
-          <div className='row gx-5 align-items-center justify-content-center justify-content-lg-between'>
-            <div className='col-12 col-lg-5'>
+        <Container fluid className=' px-5'>
+          <Row className='gx-5 align-items-center justify-content-center justify-content-lg-between'>
+            <Col xs={12} lg={6}>
               <h2 className='display-4 lh-1 mb-4'>
                 Knowledge is very much power
               </h2>
-              <p className='lead fw-normal text-muted mb-5 mb-lg-0'>
+              <p className='lead fw-normal text-muted mb-0'>
                 For a more detailed view of your particular requirements based
                 on your personal financial circumstances, please contact your
                 nearest specialist.
               </p>
-            </div>
-            <div className='col-sm-8 col-md-6'>
-              <div className='px-5 px-sm-0'>
-                <Image fluid src='assets/img/stars.svg' />
-              </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+            <Col
+              xs={12}
+              sm={10}
+              lg={5}
+              className='px-5 px-sm-0 d-none d-lg-block '
+            >
+              <Stars />
+            </Col>
+          </Row>
+        </Container>
       </section>
       <DeveloperDetailsBlocks />
     </Container>

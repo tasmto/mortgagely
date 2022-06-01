@@ -1,6 +1,9 @@
 .animated-rocket--container {
   position: relative;
   cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
   img {
     max-width: 100%;
     position: absolute;

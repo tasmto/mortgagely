@@ -1,6 +1,6 @@
 .animated-mobile--container {
   position: relative;
-  cursor: grab;
+  cursor: no-drop;
   img {
     max-width: 100%;
     position: absolute;
@@ -8,9 +8,6 @@
     left: 0;
     pointer-events: none;
     transition: transform 120ms ease-in-out;
-    &.events {
-      pointer-events: all;
-    }
 
     &:nth-child(1) {
       position: relative;

@@ -7,6 +7,7 @@ type Props = {};
 
 const Rocket = ({}: Props) => {
   const [hoverRocket, setHoverRocket] = useState(false);
+  const [clickRocket, setClickRocket] = useState(false);
   const transitions = {
     typeOne: {
       type: 'spring',
@@ -17,7 +18,16 @@ const Rocket = ({}: Props) => {
     },
   };
   return (
-    <Container className='container-fluid animated-rocket--container'>
+    <motion.div
+      drag={true}
+      dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+      dragElastic={0.2}
+      onMouseEnter={() => setHoverRocket(true)}
+      onMouseLeave={() => setHoverRocket(false)}
+      onDragEnd={() => setClickRocket(false)}
+      onDragStart={() => setClickRocket(true)}
+      className='container-fluid animated-rocket--container'
+    >
       {/* BG */}
       <motion.div
         className='fluid'
@@ -32,7 +42,9 @@ const Rocket = ({}: Props) => {
           viewBox='0 0 800 733'
           xmlns='http://www.w3.org/2000/svg'
           xmlnsXlink='http://www.w3.org/1999/xlink'
-          className={`rocket-background ${hoverRocket && 'hover'}`}
+          className={`rocket-background ${
+            (hoverRocket || clickRocket) && 'hover'
+          }`}
         >
           <g clipPath='url(#b)'>
             <path
@@ -49,11 +61,11 @@ const Rocket = ({}: Props) => {
               gradientUnits='userSpaceOnUse'
             >
               <stop
-                stopColor={!hoverRocket ? '#D9936A' : '#4F3A2E'}
+                stopColor={!hoverRocket && !clickRocket ? '#D9936A' : '#4F3A2E'}
                 offset='0'
               />
               <stop
-                stopColor={!hoverRocket ? '#BF4F36' : '#BF4F36'}
+                stopColor={!hoverRocket && !clickRocket ? '#BF4F36' : '#BF4F36'}
                 offset='1'
               />
             </linearGradient>
@@ -75,27 +87,25 @@ const Rocket = ({}: Props) => {
       />
       {/* Rocket */}
       <motion.img
-        className='fluid events rocket'
+        className='fluid rocket'
         src='assets/img/rocket/rocket-02.svg'
-        onMouseEnter={() => setHoverRocket(true)}
-        onMouseLeave={() => setHoverRocket(false)}
         initial={{ rotate: [45] }}
         animate={
-          hoverRocket
+          hoverRocket || clickRocket
             ? {
                 scale: [1, 0.97],
-                y: [-60, -40],
+                y: [-60, -30],
                 x: [
-                  -10, -8, -10, -8, -10, -8, -10, -8, -10, -8, -10, -8, -10, -8,
-                  -10, -8, -10, -7, -10, -7, -10, -7, -10, -7, -10, -7, -10, -7,
-                  -10, -7, -10, -7, -10, -7,
+                  -10, -7, -10, -7, -10, -7, -10, -7, -10, -7, -10, -7, -10, -7,
+                  -10, -7, -10, -5, -10, -5, -10, -5, -10, -5, -10, -5, -10, -5,
+                  -10, -5, -10, -5, -10, -5,
                 ],
-                rotate: [25, 30],
+                rotate: [25, 35],
               }
             : {
                 scale: [0.99, 1.01],
                 y: [-50, -35],
-                x: [-1, 1, -0.2, 1, 1, -0.4, 1, 1],
+                x: [-1.5, 1, -1, 1, 1, -2, 1, 1],
                 rotate: [0, 0],
               }
         }
@@ -111,9 +121,9 @@ const Rocket = ({}: Props) => {
         className='fluid'
         src='assets/img/rocket/rocket-03.svg'
         animate={{
-          y: !hoverRocket ? [-5, 5] : [85, 40],
-          x: !hoverRocket ? [0, 0] : [25, 25],
-          rotate: !hoverRocket ? [3, -3] : [-1, 1],
+          y: !hoverRocket && !clickRocket ? [-5, 5] : [85, 40],
+          x: !hoverRocket && !clickRocket ? [0, 0] : [25, 25],
+          rotate: !hoverRocket && !clickRocket ? [3, -3] : [-1, 1],
         }}
         transition={{
           ...transitions.typeOne,
@@ -121,7 +131,7 @@ const Rocket = ({}: Props) => {
           ease: 'linear',
         }}
       />
-    </Container>
+    </motion.div>
   );
 };
 
