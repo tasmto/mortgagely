@@ -23,7 +23,20 @@ h1,
 h2 {
   font-family: 'Newsreader';
 }
-
+.btn-success {
+  background: $primary !important;
+  color: $white !important;
+  &:hover {
+    background: darken($primary, 5%) !important;
+  }
+}
+.btn-outline-success {
+  border-color: $primary !important;
+  color: $white !important;
+  &:hover {
+    background: $primary !important;
+  }
+}
 .bg-black {
   background-color: #000 !important;
 }

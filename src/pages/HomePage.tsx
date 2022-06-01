@@ -8,10 +8,10 @@ import {
   Col,
   ListGroup,
 } from 'react-bootstrap';
-import { FiFeather, FiAward } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import Phone from '../features/animatedImages/phone';
 import Stars from '../features/animatedImages/stars';
+import Calculator from '../features/calculators';
 import DeveloperDetailsBlocks from '../features/developer/DeveloperDetailsBlocks';
 import HomePageHero from '../features/heros/HomepageHero';
 
@@ -23,111 +23,7 @@ const HomePage = (props: Props) => {
       <HomePageHero />
 
       <Container fluid as='section' className='px-0 pb-0' id='calculator'>
-        <Row className='row gx-5 justify-content-center align-items-stretch bg-gradient-primary-to-secondary px-5 py-5 mx-auto shadow'>
-          <Col md={6} lg={7} className='order-2 order-md-0'>
-            <ListGroup>
-              <Row>
-                <Row className='g-1'>
-                  <Col lg={6}>
-                    <ListGroup.Item className='bg-transparent link'>
-                      <Button
-                        variant='outline-light'
-                        size='lg'
-                        className=' w-100 rounded'
-                      >
-                        <Row className='justify-content-start g-2'>
-                          <Col xs='auto'>
-                            <FiFeather className='calculator-button--icon ' />
-                          </Col>
-                          <Col className='text-start'>
-                            <h4 className='fs-6 fw-bold mb-1'>Second radio</h4>
-                            <small className='lh-1'>
-                              Some other text goes here
-                            </small>
-                          </Col>
-                        </Row>
-                      </Button>
-                    </ListGroup.Item>
-                  </Col>
-                  <Col lg={6}>
-                    <ListGroup.Item className='bg-transparent link'>
-                      <Button
-                        variant='outline-light'
-                        size='lg'
-                        className=' w-100 rounded'
-                      >
-                        <Row className='justify-content-start g-2'>
-                          <Col xs='auto'>
-                            <FiAward className='calculator-button--icon ' />
-                          </Col>
-                          <Col className='text-start'>
-                            <h4 className='fs-6 fw-bold mb-1'>Second radio</h4>
-                            <small className='lh-1'>
-                              Some other text goes here
-                            </small>
-                          </Col>
-                        </Row>
-                      </Button>
-                    </ListGroup.Item>
-                  </Col>
-                </Row>
-                <Row className='g-1'>
-                  <Col lg={6}>
-                    <ListGroup.Item className='bg-transparent link'>
-                      <Button
-                        variant='outline-light'
-                        size='lg'
-                        className=' w-100 rounded'
-                      >
-                        <Row className='justify-content-start g-2'>
-                          <Col xs='auto'>
-                            <FiFeather className='calculator-button--icon ' />
-                          </Col>
-                          <Col className='text-start'>
-                            <h4 className='fs-6 fw-bold mb-1'>Second radio</h4>
-                            <small className='lh-1'>
-                              Some other text goes here
-                            </small>
-                          </Col>
-                        </Row>
-                      </Button>
-                    </ListGroup.Item>
-                  </Col>
-                  <Col lg={6}>
-                    <ListGroup.Item className='bg-transparent link'>
-                      <Button
-                        variant='outline-light'
-                        size='lg'
-                        className=' w-100 rounded'
-                      >
-                        <Row className='justify-content-start g-2'>
-                          <Col xs='auto'>
-                            <FiAward className='calculator-button--icon ' />
-                          </Col>
-                          <Col className='text-start'>
-                            <h4 className='fs-6 fw-bold mb-1'>Second radio</h4>
-                            <small className='lh-1'>
-                              Some other text goes here
-                            </small>
-                          </Col>
-                        </Row>
-                      </Button>
-                    </ListGroup.Item>
-                  </Col>
-                </Row>
-              </Row>
-            </ListGroup>
-            {/* //!https://www.ooba.co.za/home-loan/bond-repayment-calculator/ */}
-          </Col>
-          <Col md={6} lg={5} className=' mb-3 mb-md-0 order-1'>
-            <h2 className='h2 fs-1 text-white mb-4'>
-              Choose the type of calculator you want to use.
-            </h2>
-            <small className='text-white'>
-              * Meant to be used as a rough guide
-            </small>
-          </Col>
-        </Row>
+        <Calculator />
       </Container>
 
       <section id='faq'>

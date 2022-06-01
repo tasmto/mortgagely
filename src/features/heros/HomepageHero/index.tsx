@@ -43,7 +43,6 @@ const HomePageHero = (props: Props) => {
             <a
               href='#developer'
               className='btn btn-outline-secondary py-3 px-4 rounded-pill mt-2'
-              to='/'
             >
               Developer
             </a>
