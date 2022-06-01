@@ -10,50 +10,19 @@ import {
 } from 'react-bootstrap';
 import { FiFeather, FiAward } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import Phone from '../features/animatedImages/phone';
 import DeveloperDetailsBlocks from '../features/developer/DeveloperDetailsBlocks';
+import HomePageHero from '../features/heros/HomepageHero';
 
 type Props = {};
 
 const HomePage = (props: Props) => {
   return (
     <Container>
-      <section className='shadow-sm  rounded-3'>
-        <Container as={Row} className=' gx-5 align-items-center '>
-          <Col ld={6} className='me-0 mb-lg-0 text-center text-lg-start'>
-            <h1 className='display-1 lh-1 mb-3'>
-              Mortgage payment calculator.
-            </h1>
-            <p>
-              <small className='fw-normal text-muted mb-4'>
-                *Please note that this tool is only to be used as a rough
-                guide...
-              </small>
-            </p>
-            <ButtonGroup>
-              <Link
-                className='btn btn-primary  py-3 px-4 rounded-pill me-2 mt-2'
-                to='/'
-                target='_blank'
-              >
-                Download for free
-              </Link>
-              <Link
-                className='btn btn-outline-secondary py-3 px-4 rounded-pill mt-2'
-                to='/'
-                target='_blank'
-              >
-                Download for free
-              </Link>
-            </ButtonGroup>
-          </Col>
-          <Col ld={6} className='d-none d-lg-block'>
-            <Image fluid src='assets/img/rocket.svg' />
-          </Col>
-        </Container>
-      </section>
+      <HomePageHero />
 
       <Container fluid as='section' className='px-0 pb-0' id='calculator'>
-        <Row className='row gx-5 justify-content-center bg-gradient-primary-to-secondary px-5 py-5 mx-auto shadow'>
+        <Row className='row gx-5 justify-content-center align-items-stretch bg-gradient-primary-to-secondary px-5 py-5 mx-auto shadow'>
           <Col md={6} lg={7}>
             <ListGroup>
               <Row>
@@ -70,8 +39,8 @@ const HomePage = (props: Props) => {
                             <FiFeather className='calculator-button--icon ' />
                           </Col>
                           <Col className='text-start'>
-                            <h4 className='fs-6 fw-bold'>Second radio</h4>
-                            <small className=''>
+                            <h4 className='fs-6 fw-bold mb-1'>Second radio</h4>
+                            <small className='lh-1'>
                               Some other text goes here
                             </small>
                           </Col>
@@ -91,8 +60,8 @@ const HomePage = (props: Props) => {
                             <FiAward className='calculator-button--icon ' />
                           </Col>
                           <Col className='text-start'>
-                            <h4 className='fs-6 fw-bold'>Second radio</h4>
-                            <small className=''>
+                            <h4 className='fs-6 fw-bold mb-1'>Second radio</h4>
+                            <small className='lh-1'>
                               Some other text goes here
                             </small>
                           </Col>
@@ -114,8 +83,8 @@ const HomePage = (props: Props) => {
                             <FiFeather className='calculator-button--icon ' />
                           </Col>
                           <Col className='text-start'>
-                            <h4 className='fs-6 fw-bold'>Second radio</h4>
-                            <small className=''>
+                            <h4 className='fs-6 fw-bold mb-1'>Second radio</h4>
+                            <small className='lh-1'>
                               Some other text goes here
                             </small>
                           </Col>
@@ -135,8 +104,8 @@ const HomePage = (props: Props) => {
                             <FiAward className='calculator-button--icon ' />
                           </Col>
                           <Col className='text-start'>
-                            <h4 className='fs-6 fw-bold'>Second radio</h4>
-                            <small className=''>
+                            <h4 className='fs-6 fw-bold mb-1'>Second radio</h4>
+                            <small className='lh-1'>
                               Some other text goes here
                             </small>
                           </Col>
@@ -149,7 +118,7 @@ const HomePage = (props: Props) => {
             </ListGroup>
             {/* //!https://www.ooba.co.za/home-loan/bond-repayment-calculator/ */}
           </Col>
-          <Col md={6} lg={5} className=' '>
+          <Col md={6} lg={5} className=' sticky-top'>
             <h2 className='h2 fs-1 text-white mb-4'>
               Choose the type of calculator you want to use.
             </h2>
@@ -171,7 +140,7 @@ const HomePage = (props: Props) => {
             <Row className=' gx-5'>
               <Col as='article' md={6} className=' mb-5'>
                 <i className='bi-phone icon-feature text-gradient d-block mb-3'></i>
-                <h3 className='font-alt'>Shop with confidence</h3>
+                <h3 className='font-alt '>Shop with complete confidence</h3>
                 <p className='text-muted mb-0'>
                   Knowing your credit score allows you to address any issues
                   before applying for a home loan.
@@ -179,7 +148,7 @@ const HomePage = (props: Props) => {
               </Col>
               <Col as='article' md={6} className=' mb-5'>
                 <i className='bi-camera icon-feature text-gradient d-block mb-3'></i>
-                <h3 className='font-alt'>Know how much you can afford</h3>
+                <h3 className='font-alt '>Know how much you can afford</h3>
                 <p className='text-muted mb-0'>
                   We consider your financial information in the same way a bank
                   would, to give you an accurate assessment of what you can
@@ -190,7 +159,7 @@ const HomePage = (props: Props) => {
             <Row>
               <Col as='article' md={6} className=' mb-5'>
                 <i className='bi-gift icon-feature text-gradient d-block mb-3'></i>
-                <h3 className='font-alt'>Get the competitive advantage</h3>
+                <h3 className='font-alt '>Get the competitive advantage</h3>
                 <p className='text-muted mb-0'>
                   Sellers are more likely to accept an offer from someone who
                   has proof that they can afford to buy.
@@ -198,7 +167,7 @@ const HomePage = (props: Props) => {
               </Col>
               <Col as='article' md={6} className=' mb-5'>
                 <i className='bi-patch-check icon-feature text-gradient d-block mb-3'></i>
-                <h3 className='font-alt'>Sign with confidence</h3>
+                <h3 className='font-alt '>Sign with absolute confidence</h3>
                 <p className='text-muted mb-0'>
                   Pre-approval protects you from putting in an offer on a
                   property you can't afford. Why risk disappointment?
@@ -208,13 +177,13 @@ const HomePage = (props: Props) => {
           </Container>
           <Col lg={4} className='d-none d-lg-block  order-lg-0'>
             <div className='features-device-mockup'>
-              <Image fluid src='assets/img/mobile.svg' />
+              <Phone />
             </div>
           </Col>
         </Container>
       </section>
 
-      <section className='bg-light' id='about'>
+      <section className='bg-light border' id='about'>
         <div className='container px-5'>
           <div className='row gx-5 align-items-center justify-content-center justify-content-lg-between'>
             <div className='col-12 col-lg-5'>
