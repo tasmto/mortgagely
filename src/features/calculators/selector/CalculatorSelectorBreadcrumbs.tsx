@@ -14,7 +14,7 @@ function CalculatorSelectorBreadcrumbs({ active }: Props) {
     setSearchParams();
   };
   return (
-    <Breadcrumb className='bg-transparent'>
+    <Breadcrumb className='bg-transparent p-0 mb-3 mb-md-0'>
       <Breadcrumb.Item
         active={!active ? true : false}
         id=''
