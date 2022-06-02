@@ -27,8 +27,10 @@ const Stars = ({}: Props) => {
         className='fluid  px-0'
         animate={{ opacity: [1, 1], scale: [1, 1.04] }}
         transition={{
-          ...transitions.typeOne,
-          duration: 3,
+          type: 'spring',
+          bounce: 0.25,
+          repeat: Infinity,
+          repeatType: 'reverse',
         }}
       >
         <svg
@@ -99,8 +101,9 @@ const Stars = ({}: Props) => {
         className='fluid'
         src='assets/img/stars/stars-03.svg'
         animate={{
-          y: !hoverStars ? [-3, 3] : [15, 10],
-          x: !hoverStars ? [0, 0] : [10, 15],
+          y: !hoverStars ? [-3, 3] : [25, 35],
+          x: !hoverStars ? [0, 0] : [-10, -15],
+          scale: !hoverStars ? [1, 1] : [0.8, 0.76],
         }}
         transition={{
           type: 'tween',

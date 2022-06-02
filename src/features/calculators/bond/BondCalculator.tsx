@@ -1,14 +1,22 @@
 import React, { ChangeEvent, useState } from 'react';
-import { Form, InputGroup, Row, Col, Button } from 'react-bootstrap';
+import { Form, InputGroup, Row, Col, Button, Alert } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store';
+import { updateParameters, calculate } from './bondSlice';
 
 type Props = {};
 
 function BondCalculator({}: Props) {
+  const dispatch = useDispatch();
+
+  const { price, years, interestRate, deposit, error } = useSelector(
+    (state: RootState) => state.bond
+  );
   const [formData, setFormData] = useState({
-    price: null,
-    years: null,
-    rate: 8.25,
-    deposit: null,
+    price: price || 0,
+    years: years || 0,
+    interestRate: interestRate || 0,
+    deposit: deposit || 0,
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFormData((current) => {
@@ -16,6 +24,8 @@ function BondCalculator({}: Props) {
     });
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    dispatch(updateParameters(formData));
+    dispatch(calculate());
   };
   return (
     <Form
@@ -60,13 +70,13 @@ function BondCalculator({}: Props) {
             >
               %
             </InputGroup.Text>
-            <Form.Group controlId='rate' className='form-floating  col'>
+            <Form.Group controlId='interestRate' className='form-floating  col'>
               <Form.Control
                 onChange={handleChange}
                 type='number'
-                value={formData.rate}
+                value={formData.interestRate}
                 required
-                placeholder='8.25'
+                placeholder='0'
                 className=' rounded-0 rounded-end'
               ></Form.Control>
               <Form.Label>Interest rate*</Form.Label>
@@ -90,12 +100,19 @@ function BondCalculator({}: Props) {
           <Form.Label>Deposit*</Form.Label>
         </Form.Group>
       </InputGroup>
-      <div>
+
+      <div className='mt-3'>
+        {error && (
+          <Alert className='mb-2' variant='danger'>
+            {error}
+          </Alert>
+        )}
+
         <Button
           type='submit'
           variant='primary'
           size='lg'
-          className='w-100 py-3 mt-3 fs-6 border-3'
+          className='w-100 py-3  fs-6 border-3'
         >
           Submit
         </Button>

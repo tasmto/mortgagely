@@ -12,12 +12,12 @@ const CalculatorSelector = (props: Props) => {
   };
 
   return (
-    <>
-      <Col md={6} lg={7} className='order-2 order-md-0'>
+    <Row>
+      <Col md={6} lg={7} className='order-2 order-md-0 ps-md-2'>
         <ListGroup>
           <Row className='justify-content-stretch display-block d-block'>
             <Row className='g-1 justify-content-stretch'>
-              <Col lg={6} className='h-100'>
+              <Col lg={12} className='h-100'>
                 <ListGroup.Item
                   className='bg-transparent link h-100 checked'
                   id='bond'
@@ -41,7 +41,7 @@ const CalculatorSelector = (props: Props) => {
                   </Button>
                 </ListGroup.Item>
               </Col>
-              <Col lg={6} className='h-100'>
+              <Col lg={12} className='h-100'>
                 <ListGroup.Item
                   className='bg-transparent link h-100'
                   id='transfer-costs'
@@ -65,9 +65,8 @@ const CalculatorSelector = (props: Props) => {
                   </Button>
                 </ListGroup.Item>
               </Col>
-            </Row>
-            <Row className='g-1'>
-              <Col lg={6} className='h-100'>
+
+              <Col lg={12} className='h-100'>
                 <ListGroup.Item
                   className='bg-transparent link h-100'
                   id='deposit-savings'
@@ -91,7 +90,7 @@ const CalculatorSelector = (props: Props) => {
                   </Button>
                 </ListGroup.Item>
               </Col>
-              <Col lg={6} className='h-100'>
+              <Col lg={12} className='h-100'>
                 <ListGroup.Item
                   className='bg-transparent link h-100'
                   id='extra-payments'
@@ -124,11 +123,31 @@ const CalculatorSelector = (props: Props) => {
         <h2 className='h2 fs-1 text-white mb-4'>
           Choose the type of calculator you want to use.
         </h2>
+        <p className='text-white'>
+          This tool is meant to be used as a rough guide. The copy and idea is
+          based on{' '}
+          <a href='https://www.ooba.co.za/' target='_blank' rel='no-refer'>
+            <strong>Ooba</strong>
+          </a>{' '}
+          (one of the best platforms for these kinds of tools ❤) but{' '}
+          <strong>
+            the code, implementation, design and assets are all original
+          </strong>
+          .
+        </p>
         <small className='text-white'>
-          * Meant to be used as a rough guide
+          * Special thanks to the{' '}
+          <a
+            href='https://www.youtube.com/c/CoderFoundryBootcamp'
+            target='_blank'
+            rel='no-refer'
+          >
+            <strong>Coder Foundry's YouTube channel</strong>
+          </a>{' '}
+          for the suggestion.
         </small>
       </Col>
-    </>
+    </Row>
   );
 };
 
