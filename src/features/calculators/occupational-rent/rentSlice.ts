@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import calculateBond from './calculateBond';
+import calculateRent from './calculateRent';
 import { RootState } from '../store';
 
 interface calculations {
-  years?: number;
-  monthlyRepayments: number;
+  months?: number;
+  monthlyGains: number;
   total: number;
   difference?: number;
 }
 export interface Structure {
   value: number;
-  price: number;
-  years: number;
+  rent: number;
+  months: number;
   error?: string | null;
-  interestRate: number;
+  utilized: number;
   deposit: number;
   calculations: {
     current: calculations;
@@ -26,42 +26,42 @@ export interface Structure {
 
 const initialState: Structure = {
   value: 0,
-  price: 0,
-  years: 0,
+  rent: 0,
+  months: 0,
   error: null,
-  interestRate: 8.25,
+  utilized: 8.25,
   deposit: 0,
   calculations: {
     current: {
-      years: 0,
-      monthlyRepayments: 0,
+      months: 0,
+      monthlyGains: 0,
       total: 0,
     },
     termOne: {
-      years: 1,
-      monthlyRepayments: 0,
+      months: 1,
+      monthlyGains: 0,
       total: 0,
     },
     termTwo: {
-      years: 3,
-      monthlyRepayments: 0,
+      months: 3,
+      monthlyGains: 0,
       total: 0,
     },
     termThree: {
-      years: 5,
-      monthlyRepayments: 0,
+      months: 5,
+      monthlyGains: 0,
       total: 0,
     },
     termFour: {
-      years: 10,
-      monthlyRepayments: 0,
+      months: 10,
+      monthlyGains: 0,
       total: 0,
     },
   },
 };
 // @ts-ignore:
-export const bondSlice = createSlice({
-  name: 'bond',
+export const rentSlice = createSlice({
+  name: 'rent',
   initialState,
   reducers: {
     decrement: (state) => {
@@ -75,10 +75,10 @@ export const bondSlice = createSlice({
     },
     calculate: (state: RootState) => {
       try {
-        const monthly = calculateBond(
-          state.price - state.deposit,
-          state.interestRate,
-          state.years
+        const monthly = calculateRent(
+          state.rent - state.deposit,
+          state.utilized,
+          state.months
         );
 
         state.error = null; // reset errors just in case
@@ -86,11 +86,13 @@ export const bondSlice = createSlice({
         for (const property in state.calculations) {
           state.calculations[property] = {
             ...state.calculations[property],
-            monthlyRepayments: Number(monthly).toFixed(2),
+            monthlyGains: Number(monthly).toFixed(2),
             total: Number(
-              monthly * (state.calculations[property].years || state.years) * 12
+              monthly *
+                (state.calculations[property].months || state.months) *
+                12
             ),
-            years: state.calculations[property]?.years || state.years,
+            months: state.calculations[property]?.months || state.months,
           };
         }
       } catch (error) {
@@ -102,15 +104,15 @@ export const bondSlice = createSlice({
     updateParameters: (
       state,
       action: PayloadAction<{
-        price: number;
-        years: number;
-        interestRate: number;
+        rent: number;
+        months: number;
+        utilized: number;
         deposit: number;
       }>
     ) => {
-      state.price = action.payload?.price || state.price;
-      state.years = action.payload?.years || state.years;
-      state.interestRate = action.payload?.interestRate || state.interestRate;
+      state.rent = action.payload?.rent || state.rent;
+      state.months = action.payload?.months || state.months;
+      state.utilized = action.payload?.utilized || state.utilized;
       state.deposit = action.payload?.deposit || state.deposit;
     },
   },
@@ -118,6 +120,6 @@ export const bondSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { calculate, updateParameters, decrement, incrementByAmount } =
-  bondSlice.actions;
+  rentSlice.actions;
 
-export default bondSlice.reducer;
+export default rentSlice.reducer;

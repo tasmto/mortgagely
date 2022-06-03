@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Router>
       <Header />
-      <Container as='main' fluid>
+      <Container as='main' className='px-0 ps-md-3' fluid>
         <Routes>
           {routes.map((route) => (
             <Route

@@ -8,6 +8,8 @@ import { store } from './store';
 import { Provider } from 'react-redux';
 import AdvancedViewToggle from './selector/AdvancedViewToggle';
 import { AnimatePresence, motion } from 'framer-motion';
+import SavingsCalculatorComponent from './depositSavings';
+import RentCalculatorComponent from './occupational-rent';
 
 type Props = {};
 
@@ -21,7 +23,7 @@ const Calculator = (props: Props) => {
 
   return (
     <Provider store={store}>
-      <Row className='row gx-5 justify-content-center align-items-stretch bg-gradient-primary-to-secondary px-5 py-5 mx-auto shadow'>
+      <Row className='row gx-5 justify-content-center align-items-stretch bg-gradient-primary-to-secondary px-5 py-5 mx-auto shadow calculator-container--outer'>
         <Row className='ps-0'>
           <Col className=''>
             <CalculatorSelectorBreadcrumbs active={activeCalculator} />
@@ -48,6 +50,34 @@ const Calculator = (props: Props) => {
               }}
             >
               <BondCalculatorComponent />
+            </motion.div>
+          ) : activeCalculator === 'deposit-savings' ? (
+            <motion.div
+              key='simple'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                type: 'none',
+                stiffness: 100,
+                delay: 0,
+              }}
+            >
+              <SavingsCalculatorComponent />
+            </motion.div>
+          ) : activeCalculator === 'occupational-rent' ? (
+            <motion.div
+              key='sdsdsd'
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 0, opacity: 0 }}
+              transition={{
+                type: 'none',
+                stiffness: 100,
+                delay: 0,
+              }}
+            >
+              <RentCalculatorComponent />
             </motion.div>
           ) : (
             <motion.div

@@ -14,7 +14,7 @@ const AdvancedViewToggle = () => {
         controlId='advanced'
       >
         <Form.Label className='form-check-label fs-5 fw-bold mb-0 text-white'>
-          Advanced view
+          Table view
         </Form.Label>
         <Form.Control
           className='form-check-input ms-3'

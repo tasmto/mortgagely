@@ -86,3 +86,8 @@ hr {
 
 .not-found--page--wrapper {
 }
+
+.calculator-container--outer,
+#calculator {
+  transition: height 300ms ease;
+}
