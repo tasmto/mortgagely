@@ -9,9 +9,9 @@ type Props = {};
 
 const BondCalculatorResults = (props: Props) => {
   const { years, monthlyRepayments, total } = useSelector(
-    (state: RootState) => state.bond.calculations.current
+    (state: any) => state.bond.calculations.current
   );
-  const { price } = useSelector((state: RootState) => state.bond);
+  const { price } = useSelector((state: any) => state.bond);
   return (
     <Container
       as={Row}

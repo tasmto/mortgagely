@@ -33,8 +33,11 @@ const Rocket = ({}: Props) => {
         className='fluid'
         animate={{ opacity: [1, 1], scale: [0.99, 1.01], y: [0, 3] }}
         transition={{
-          ...transitions.typeOne,
-          duration: 3,
+          type: 'spring',
+          bounce: 0.25,
+
+          repeat: Infinity,
+          repeatType: 'reverse',
         }}
       >
         <svg
@@ -81,15 +84,17 @@ const Rocket = ({}: Props) => {
         src='assets/img/rocket/rocket-01.svg'
         animate={{ opacity: [0.4, 0.6, 1] }}
         transition={{
-          ...transitions.typeOne,
-          duration: 2,
+          type: 'spring',
+          bounce: 0.25,
+
+          repeat: Infinity,
+          repeatType: 'reverse',
         }}
       />
       {/* Rocket */}
       <motion.img
         className='fluid rocket'
         src='assets/img/rocket/rocket-02.svg'
-        initial={{ rotate: [45] }}
         animate={
           hoverRocket || clickRocket
             ? {
@@ -126,9 +131,11 @@ const Rocket = ({}: Props) => {
           rotate: !hoverRocket && !clickRocket ? [3, -3] : [-1, 1],
         }}
         transition={{
-          ...transitions.typeOne,
           duration: 6,
           ease: 'linear',
+
+          repeat: Infinity,
+          repeatType: 'reverse',
         }}
       />
     </motion.div>

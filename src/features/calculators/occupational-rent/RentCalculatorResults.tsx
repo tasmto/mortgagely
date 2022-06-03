@@ -8,10 +8,10 @@ import { FormatCurrency } from '../../../utilities/FormatNumber';
 type Props = {};
 
 const RentCalculatorResults = (props: Props) => {
-  const { months, monthlyGains, total } = useSelector(
-    (state: RootState) => state.rent.calculations.current
+  const { totalGained, total } = useSelector(
+    (state: any) => state.rent.calculations.current
   );
-  const { rent } = useSelector((state: RootState) => state.rent);
+  const { months } = useSelector((state: any) => state.rent);
   return (
     <Container
       as={Row}
@@ -20,7 +20,7 @@ const RentCalculatorResults = (props: Props) => {
       <Col xs={12} className='p-0'>
         <h4 className='h2 fs-4 text-white mb-0'>Your monthly gains</h4>
         <p className='display-5 f-alt text-white font-alt'>
-          {FormatCurrency(monthlyGains)}
+          {FormatCurrency(totalGained / months || 0)}
         </p>
 
         <h4 className='h2 fs-4 text-white text-white mb-0'>Total rent paid</h4>
@@ -29,7 +29,7 @@ const RentCalculatorResults = (props: Props) => {
         </p>
         <h5 className='h3 fs-5 text-light mb-0'> Total amount gained </h5>
         <p className='display-6 f-alt text-light font-alt'>
-          {FormatCurrency(Math.abs(total - rent))}
+          {FormatCurrency(totalGained)}
         </p>
       </Col>
       <small className='text-white ps-0'>

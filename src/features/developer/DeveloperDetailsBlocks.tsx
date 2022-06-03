@@ -10,13 +10,9 @@ const DeveloperDetailsBlocks = () => {
           <div className='h-100 p-5 text-white bg-dark bg-gradient-primary-to-secondary '>
             <h2 className='text-light'>About this project</h2>
             <p className=''>
-              This store was built with React.js with Redux and Bootstrap on the
-              frontend, Node.js, Express.js for the server and MongoDB with
-              Mongoose for the Database.
-              <br />
-              <br />
-              For this version I've enabled the PayPal SDK in Sandbox mode sor
-              feel free to test out the entire checkout process!
+              This website was built with React, Redux Toolkit, Bootstrap and
+              Framer motion. Please feel free to plug in your own data to test
+              it out 😁.
             </p>
             <a
               className='btn btn-outline-light  rounded-pill'
@@ -34,10 +30,6 @@ const DeveloperDetailsBlocks = () => {
               Hi there, I'm a fullstack JavaScript developer from Zimbabwe.
               Currently (At the time of development) looking for my next
               opportunity to make cool stuff.
-              <br />
-              <br />
-              Thank you so much for your time. If you'd like to learn more about
-              me or see some more of my work click the button below 😊.
             </p>
             <a
               className='btn btn-outline-secondary rounded-pill'

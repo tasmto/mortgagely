@@ -30,8 +30,8 @@ function AdvancedBondResults() {
     termFour,
     termFive,
     termSix,
-  }: terms = useSelector((state: RootState) => state.savings.calculations);
-  const { months } = useSelector((state: RootState) => state.savings);
+  }: terms = useSelector((state: any) => state.savings.calculations);
+  const { months } = useSelector((state: any) => state.savings);
   return (
     <Container fluid className='px-3 pt-3 mt-1 bg-light rounded-3 shadow '>
       <Table

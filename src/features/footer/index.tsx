@@ -16,9 +16,9 @@ function Footer({}: Props) {
         </Col>
         <Col sm='auto'>
           <Nav className='me-auto'>
-            <Nav.Link href='#home'>Home</Nav.Link>
-            <Nav.Link href='#features'>Features</Nav.Link>
-            <Nav.Link href='#pricing'>Pricing</Nav.Link>
+            <Nav.Link href='#faq'>FAQ's</Nav.Link>
+            <Nav.Link href='#about'>About</Nav.Link>
+            <Nav.Link href='#calculator'>Calculators</Nav.Link>
           </Nav>
         </Col>
       </Row>

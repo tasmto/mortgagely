@@ -20,7 +20,7 @@ type terms = {
 
 function AdvancedBondResults() {
   const { current, termOne, termTwo, termThree, termFour }: terms = useSelector(
-    (state: RootState) => state.bond.calculations
+    (state: any) => state.bond.calculations
   );
   return (
     <Container fluid className='py-2 px-3 pt-3 mt-1 bg-light rounded-3 shadow '>

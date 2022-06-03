@@ -11,7 +11,7 @@ function RentCalculator({}: Props) {
   const dispatch = useDispatch();
 
   const { rent, months, utilized, deposit, error } = useSelector(
-    (state: RootState) => state.rent
+    (state: any) => state.rent
   );
   const [formData, setFormData] = useState({
     rent: rent || 0,

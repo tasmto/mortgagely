@@ -11,7 +11,7 @@ function SavingsCalculator({}: Props) {
   const dispatch = useDispatch();
 
   const { goal, months, interestRate, deposit, error } = useSelector(
-    (state: RootState) => state.savings
+    (state: any) => state.savings
   );
   const [formData, setFormData] = useState({
     goal: goal || 0,

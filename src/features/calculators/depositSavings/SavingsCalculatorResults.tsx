@@ -9,9 +9,9 @@ type Props = {};
 
 const SavingsCalculatorResults = (props: Props) => {
   const { total, monthlyGains, timeTillGoal } = useSelector(
-    (state: RootState) => state.savings.calculations.current
+    (state: any) => state.savings.calculations.current
   );
-  const { goal, months } = useSelector((state: RootState) => state.savings);
+  const { goal, months } = useSelector((state: any) => state.savings);
   return (
     <Container
       as={Row}

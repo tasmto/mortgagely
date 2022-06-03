@@ -6,9 +6,9 @@ import { RootState } from '../store';
 import { FormatCurrency } from '../../../utilities/FormatNumber';
 
 type termFields = {
-  months: number;
-  monthlyGains: number;
-  total: number;
+  months: 1;
+  totalGained: 0;
+  total: 0;
 };
 type terms = {
   current: termFields;
@@ -20,8 +20,9 @@ type terms = {
 
 function AdvancedRentResults() {
   const { current, termOne, termTwo, termThree, termFour }: terms = useSelector(
-    (state: RootState) => state.bond.calculations
+    (state: any) => state.rent.calculations
   );
+  const { months }: any = useSelector((state: any) => state.rent);
   return (
     <Container fluid className='py-2 px-3 pt-3 mt-1 bg-light rounded-3 shadow '>
       <Table
@@ -34,7 +35,7 @@ function AdvancedRentResults() {
           <tr style={{ verticalAlign: 'middle' }}>
             <th>Months</th>
             <th className='d-flex align-items-center'>
-              Total <span className='d-none d-lg-block ms-2'>gains</span>
+              Total <span className='d-none d-lg-block ms-2'>gained</span>
             </th>
             <th>Total paid</th>
           </tr>
@@ -49,8 +50,8 @@ function AdvancedRentResults() {
           ) : (
             [current, termOne, termTwo, termThree, termFour].map((term, i) => (
               <tr key={i} className={`${!i && 'table-dark'}`}>
-                <td>{term.months}</td>
-                <td>{FormatCurrency(term.monthlyGains)}</td>
+                <td>{term.months || months}</td>
+                <td>{FormatCurrency(term.totalGained)}</td>
                 <td>{FormatCurrency(term.total)}</td>
               </tr>
             ))

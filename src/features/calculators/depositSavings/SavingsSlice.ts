@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import calculateSavings from './calculateSavings';
-import { RootState } from '../store';
 
 interface calculations {
   months?: number;
@@ -76,14 +75,14 @@ const initialState: Structure = {
   },
 };
 // @ts-ignore:
-export const savingsSlice = createSlice({
+export const savingsSlice: any = createSlice({
   name: 'savings',
   initialState,
   reducers: {
     resetError: (state) => {
       state.error = null;
     },
-    calculate: (state: RootState) => {
+    calculate: (state: any) => {
       try {
         state.error = ''; // reset errors just in case
         const { total, monthlyGains, timeTillGoal } = calculateSavings(

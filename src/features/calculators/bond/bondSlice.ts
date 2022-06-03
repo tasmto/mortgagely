@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import calculateBond from './calculateBond';
-import { RootState } from '../store';
 
 interface calculations {
   years?: number;
@@ -59,21 +58,15 @@ const initialState: Structure = {
     },
   },
 };
-// @ts-ignore:
-export const bondSlice = createSlice({
+
+export const bondSlice: any = createSlice({
   name: 'bond',
   initialState,
   reducers: {
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
-    },
-    resetError: (state) => {
+    resetError: (state: any) => {
       state.error = null;
     },
-    calculate: (state: RootState) => {
+    calculate: (state: any) => {
       try {
         const monthly = calculateBond(
           state.price - state.deposit,
@@ -117,7 +110,6 @@ export const bondSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { calculate, updateParameters, decrement, incrementByAmount } =
-  bondSlice.actions;
+export const { calculate, updateParameters } = bondSlice.actions;
 
 export default bondSlice.reducer;

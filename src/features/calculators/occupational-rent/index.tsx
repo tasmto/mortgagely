@@ -8,9 +8,7 @@ import { RootState } from '../store';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const RentCalculatorComponent = () => {
-  const advancedToggled = useSelector(
-    (state: RootState) => state.layout.advanced
-  );
+  const advancedToggled = useSelector((state: any) => state.layout.advanced);
   return (
     <Row className='px-0 gy-5 gy-md-0 mt-0  justify-content-center align-items-start'>
       <Col md={6} lg={5} className='mt-0'>

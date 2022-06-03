@@ -10,7 +10,7 @@ function BondCalculator({}: Props) {
   const dispatch = useDispatch();
 
   const { price, years, interestRate, deposit, error } = useSelector(
-    (state: RootState) => state.bond
+    (state: any) => state.bond
   );
   const [formData, setFormData] = useState({
     price: price || 0,

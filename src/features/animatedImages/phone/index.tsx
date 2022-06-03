@@ -22,7 +22,12 @@ const Phone = ({}: Props) => {
         className='fluid'
         src='assets/img/mobile/mobile-00.svg'
         animate={{ opacity: [0.95, 1] }}
-        transition={transitions.typeOne}
+        transition={{
+          type: 'spring',
+          bounce: 0.25,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        }}
       />
 
       {/* Line 2 */}

@@ -28,10 +28,9 @@ const HomePageHero = (props: Props) => {
           transition={{ ease: 'easeOut', duration: 0.5 }}
         >
           <h1 className='display-1 lh-1 mb-3'>Mortgage payment calculator.</h1>
-          <p>
-            <small className='fw-normal text-muted mb-4'>
-              *Please note that this tool is only to be used as a rough guide...
-            </small>
+          <p className='fw-normal text-muted mb-4'>
+            Your one stop shop for all your property/ real-estate and bond
+            calculation needs.
           </p>
           <ButtonGroup className='d-flex flex-wrap'>
             <a

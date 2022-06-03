@@ -6,7 +6,7 @@ import { toggleView } from './layoutSlice';
 
 const AdvancedViewToggle = () => {
   const dispatch = useDispatch();
-  const toggled = useSelector((state: RootState) => state.layout.advanced);
+  const toggled = useSelector((state: any) => state.layout.advanced);
   return (
     <Form>
       <Form.Group
