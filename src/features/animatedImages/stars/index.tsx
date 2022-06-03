@@ -31,6 +31,7 @@ const Stars = ({}: Props) => {
           bounce: 0.25,
           repeat: Infinity,
           repeatType: 'reverse',
+          duration: 2,
         }}
       >
         <svg
