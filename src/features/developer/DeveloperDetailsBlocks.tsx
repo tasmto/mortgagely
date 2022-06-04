@@ -16,7 +16,7 @@ const DeveloperDetailsBlocks = () => {
             </p>
             <a
               className='btn btn-outline-light  rounded-pill'
-              href='https://github.com/tasmto/inteligets'
+              href='https://github.com/tasmto/mortgagely'
               type='button'
             >
               View the Code
