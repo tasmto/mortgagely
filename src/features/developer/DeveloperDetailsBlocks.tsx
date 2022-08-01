@@ -33,7 +33,7 @@ const DeveloperDetailsBlocks = () => {
             </p>
             <a
               className='btn btn-outline-secondary rounded-pill'
-              href='https://tasmto.netlify.app/'
+              href='https://tasmto.com/'
               type='button'
             >
               Learn more about me
